@@ -5,14 +5,17 @@ var mongoose = require('mongoose');
 var user = require("./DBschema/user");
 var excel2json = require("./excel2json");
 var fs = require('fs');
-
+var bodyParser = require('body-parser');
 
 // view engine setup
 var PORT = process.env.PORT || 7000;
 
-app.listen(PORT, console.log(`server started on port ${PORT}`));
+app.listen(PORT, console.log(`server started on port ` + PORT));
 app.use(express.static('public'))
 app.use(express.static('views'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.get('/', function (req, res, next) {
   res.sendFile('/index.html');
 });
@@ -55,16 +58,21 @@ app.post('/login', function (req, res) {
 });
 
 app.post('/upload', function (req, res) {
-  fs.readFile(req.files.image.path, function (req, res) {
+  console.log(req.files, " files");
+  console.log(req.body, " body");
+  // console.log(req, "request");
+
+  fs.readFile(req.body.file1, function (req, res) {
     var dirname = path.resolve(".") + '/UploadFile/';
-    var newPath = dirname + req.files.image.orignalFilename;
+    var newPath = dirname + 'file1';
+    var data = {};
     fs.writeFile(newPath, data, function (err) {
       if (err) {
-        res.json("Failed to upload File");
+        res.send("Failed to upload File");
       }
       else {
         excel2json(newPath);
-        res.json("Upload Successful");
+        res.send("Upload Successful");
       }
     });
   });

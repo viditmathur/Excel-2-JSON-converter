@@ -1,5 +1,6 @@
 const port = 7000;
-const baseurl = "https://xl2json.herokuapp.com";
+//const baseurl = "https://xl2json.herokuapp.com";
+const baseurl = "http://localhost:7000";
 
 function ValidateEmail(mail) {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)) {
@@ -10,7 +11,6 @@ function ValidateEmail(mail) {
 }
 
 function gotomain() {
-
   url1 = baseurl + '/main';
   $.ajax({
     url: url1,
@@ -27,6 +27,30 @@ function checklogin() {
     alert("please login before continuing");
     location.href = "index.html";
   }
+}
+
+function uploadFile() {
+  var formData = new FormData();
+  var Files = $('#filetobeuploaded')[0];
+  formData.append('file1', Files.files[0], 'file');
+  console.log(formData.get("file1"));
+  console.log(formData);
+
+  url1 = baseurl + '/upload';
+  var datatosend = formData;
+  console.log($('#form1-upload'));
+  $.ajax({
+    url: url1,
+    type: 'POST',
+    enctype: 'multipart/form-data',
+    processData: false,  // Important!
+    contentType: false,
+    // cache: false,
+    data: formData,
+    success: function (res) {
+      alert(res.message);
+    }
+  });
 }
 function authenticate(form1) {
   email = form1.text1.value;
