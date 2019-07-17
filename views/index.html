@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Excel to JSON - Converter</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="/javascripts/index.js"></script>
+  <style>
+    header {
+      display: block;
+      margin: 2%;
+    }
+
+    .heading {
+      width: 40%;
+    }
+
+    .checkbox {
+      width: 18px;
+      height: 18px;
+    }
+
+    .button1 {
+      width: 250px;
+    }
+
+    @media screen and (max-width: 800px) {
+      .heading {
+        margin-top: 120px;
+        margin-left: 10px;
+        width: 500px;
+      }
+
+      .logo {
+        margin-top: 10%;
+      }
+
+      .logo img {
+
+        width: 480px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid logo" align="center">
+      <img src="/images/logo.jpeg" width="270px">
+    </div>
+  </header>
+  <div class="container heading">
+    <div class="card text-center">
+      <div class="card-header">
+        <h1>Login to continue</h1>
+      </div>
+      <div class="card-body">
+        <form name="form1">
+          <div class="form-group">
+            <h4>Email Address</h4>
+            <input type="email" class="form-control" name="text1" aria-describedby="emailHelp"
+              placeholder="Enter Email ID" style="text-align:center;">
+          </div>
+          <div class="form-group">
+            <h4>Password</h4>
+            <input type="password" class="form-control" name="text2" id="password" placeholder="Enter Password"
+              style="text-align:center;">
+          </div>
+        </form>
+        <a href="#" class="btn btn-primary button1"
+          onclick="ValidateEmail(document.form1.text1);authenticate(document.form1)">
+          <h3>Login</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+{
+  "env": {
+    "connectionString": "mongodb+srv://vidit:excel2json@excel2json-vutgm.mongodb.net/test?retryWrites=true&w=majority"
+  }
+}

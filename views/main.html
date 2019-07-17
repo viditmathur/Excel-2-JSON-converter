@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- Bootstrap CSS -->
+  <title>Excel to JSON - Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="/javascripts/index.js"></script>
+</head>
+
+<body onload="checklogin()">
+  <header>
+    <div class="container-fluid logo" align="center">
+      <img src="/images/logo.jpeg" width="270px">
+    </div>
+  </header>
+
+  <div class="jumbotron text-center">
+    <h1>Excel to JSON Converter</h1>
+    <p>Welcome User</p>
+    <div class="container heading">
+      <div class="card text-center">
+        <div class="card-header">
+          <h1>Upload File Here</h1>
+        </div>
+        <div class="card-body">
+          <form name="form1">
+            <div class="form-group">
+              <h4>Choose File</h4>
+              <input type="file" class="form-control" name="file" aria-describedby="emailHelp" placeholder="File Name"
+                style="text-align:center;"><br>
+              <span>(with extension .xls, .xlxs, .csv)</span>
+            </div>
+          </form>
+          <a href="#" class="btn btn-primary button1" onclick="uploadFile(document.form1)">
+            <h3>Upload</h3>
+          </a>
+        </div>
+        <div class="card-body">
+          <form name="form2">
+            <div class="form-group">
+              <h4>Choose File</h4>
+              <input type="file" class="form-control" name="file" aria-describedby="emailHelp" placeholder="File Name"
+                style="text-align:center;"><br>
+              <span>(with e xtension .xls, .xlxs, .csv)</span>
+            </div>
+          </form>
+          <a href="#" class="btn btn-primary button1" onclick="downloadFile(document.form2)">
+            <h3>Download</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
