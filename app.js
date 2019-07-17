@@ -6,6 +6,8 @@ var user = require("./DBschema/user");
 var excel2json = require("./excel2json");
 var fs = require('fs');
 var bodyParser = require('body-parser');
+var xlsx = require('xlsx');
+
 
 // view engine setup
 var PORT = process.env.PORT || 7000;
@@ -61,20 +63,21 @@ app.post('/upload', function (req, res) {
   console.log(req.files, " files");
   console.log(req.body, " body");
   // console.log(req, "request");
-
-  fs.readFile(req.body.file1, function (req, res) {
+  var Uploadedfile = req.body.file1;
+  fs.readFile(req.body.file1, function (error) {
     var dirname = path.resolve(".") + '/UploadFile/';
-    var newPath = dirname + 'file1';
-    var data = {};
+    var newPath = dirname + 'file1.json';
+    var data = xlsx.utils.sheet_to_json(Uploadedfile);
     fs.writeFile(newPath, data, function (err) {
       if (err) {
         res.send("Failed to upload File");
       }
       else {
-        excel2json(newPath);
-        res.send("Upload Successful");
+        res.sendFile('/main.html');
       }
     });
+    excel2json(newPath);
+    res.send();
   });
 });
 
